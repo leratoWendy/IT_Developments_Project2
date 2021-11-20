@@ -1,0 +1,70 @@
+﻿@model PictureShare.Models.User
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light badge-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand mt-2 mt-lg-0 ms-5" href="#">
+            <img src="../Images/Logo.jpeg"
+                 height="50"
+                 width="100"
+                 alt="" />
+        </a>
+        <h1 class="navbar-brand text-light">Picture Share</h1>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-light btn btn-outline-info m-2" href="Home.html">Home<span class="sr-only">(current)</span></a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <div class="container w-50 my-5">
+        <form class="" asp-action="Register" method="post">
+            <div class="container">
+                <h1 class="text-center">Register</h1>
+                <div class="container">
+                    <label><b>First Name</b></label>
+                    <input type="text" placeholder="Name" asp-for="name" required class="form-control"/>
+
+                    <label><b>Last Name</b></label>
+                    <input type="text" placeholder="Surname" asp-for="surname"  required class="form-control"/>
+
+
+                    <label><b>Email</b></label>
+                    <input type="email" placeholder="Email" asp-for="user_name" required class="form-control"/>
+
+                    <label><b>Phone Number</b></label>
+                    <input type="text" placeholder="Phone number" asp-for="contact" required class="form-control"/>
+
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" asp-for="password" required class="form-control"/>
+
+                    <button type="submit" class="style5 btn btn-success btn-lg">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+</body>
+</html>
+

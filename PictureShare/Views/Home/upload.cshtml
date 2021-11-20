@@ -1,0 +1,41 @@
+﻿@model PictureShare.Models.Photo;
+@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
+@{
+    ViewData["Title"] = "upload";
+
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Upload Pictures</h1>
+        </div>
+        <div class="card-body bg-dark text-white">
+            <form method="post" asp-action="upload" enctype="multipart/form-data">
+                <input type="text" name="user_email" readonly class="form-control" value="@HttpContextAccessor.HttpContext.Session.GetString("email")" />
+                <label><b>Choose Picture</b></label>
+                <input type="file" name="img" required class="input-group" />
+
+                <label><b>File Name</b></label>
+                <input type="text" placeholder="Surname" asp-for="name" required class="form-control" />
+
+
+                <label><b>Location</b></label>
+                <input type="text" placeholder="Geolocation" asp-for="geolocation" required class="form-control" />
+
+                <label><b>Tag</b></label>
+                <input type="text" placeholder="Tag Text" asp-for="tag" required class="form-control" />
+
+                <label><b>Date Captured</b></label>
+                <input type="datetime" placeholder="Date" asp-for="capturedDate" required class="form-control" />
+
+                <label><b>Captured By</b></label>
+                <input type="text" placeholder="Captured By" asp-for="capturedBy" required class="form-control" />
+
+                <button type="submit" class="style5 btn btn-success btn-lg m-4">Upload</button>
+            </form>
+        </div>
+    </div>
+</div>
+

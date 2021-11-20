@@ -1,0 +1,79 @@
+﻿@model PictureShare.Models.Photo
+
+@{
+    ViewData["Title"] = "Delete";
+
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Photo</h4>
+    <hr />
+    
+    
+    <form asp-action="DeletePhoto" asp-controller="Home" method="post">
+        <dl class="row">
+            @if (Model.photo_id != null)
+            {
+                <dt class="col-sm-2">
+                    <h2>Id</h2>
+                </dt>
+                <dd class="col-sm-10 hide" >
+                    <input type="text" asp-for="photo_id" class="form-control" value="@Model.photo_id" />
+                </dd>
+            }
+            <dt class="col-sm-2 hide">
+                <h2>Photo</h2>
+            </dt>
+            <dd class="col-sm-10 hide">
+
+                <input type="text" asp-for="photo" class="form-control" value="@Model.photo" />
+            </dd>
+            <dt class="col-sm-2">
+                <h2>Name</h2>
+            </dt>
+            <dd class="col-sm-10">
+
+                <input type="text" asp-for="name" class="form-control" value="@Model.name" />
+            </dd>
+            <dt class="col-sm-2">
+                <h2>Location</h2>
+            </dt>
+            <dd class="col-sm-10">
+
+                <input type="text" asp-for="geolocation" class="form-control" value="@Model.geolocation" />
+            </dd>
+            <dt class="col-sm-2">
+                <h2>Tag</h2>
+            </dt>
+            <dd class="col-sm-10">
+
+                <input type="text" asp-for="tag" class="form-control" value="@Model.tag" />
+            </dd>
+            <dt class="col-sm-2">
+                <h2>Date</h2>
+            </dt>
+            <dd class="col-sm-10">
+                <input type="text" asp-for="capturedDate" class="form-control" value="@Model.capturedDate" />
+            </dd>
+            <dt class="col-sm-2">
+                <h2>Created By</h2>
+            </dt>
+            <dd class="col-sm-10">
+
+                <input type="text" asp-for="capturedBy" class="form-control" value="@Model.capturedBy" />
+            </dd>
+            <dt class="col-sm-2 hide">
+                <h2>user Id</h2>
+            </dt>
+            <dd class="col-sm-10 hide">
+
+                <input type="text" asp-for="user_id" class="form-control" value="@Model.user_id" />
+            </dd>
+        </dl>
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-primary">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,30 @@
+﻿@model List<PictureShare.Models.Photo>;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container d-flex flex-wrap-reverse">
+    @if (Model.Count() > 0) {
+        @foreach (var photo in Model) { 
+            <form method="post" asp-action="share">
+                <div class="card m-2">
+                    <div class="card-header">
+                        <img src="data:image/jpeg;base64,@System.Convert.ToBase64String(@photo.photo)" width="400" height="400" class="card-img-top" alt="imagedisplay" />
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title">@photo.name</h1>
+                        <p>@photo.tag</p>
+                        <p>@photo.geolocation</p>
+                        <p>@photo.capturedBy</p>
+                        <p>@photo.capturedDate</p>
+                    </div>
+                    <div class="card-footer d-flex flex-wrap row">
+                        <input type="submit" class="btn btn-primary" value="Share" />
+                        <a class="btn btn-info mx-auto" asp-action="Update">Update</a>
+                        <a class="btn btn-danger mx-auto" asp-action="Delete" asp-route-Id="@photo.photo_id">Delete</a>
+                    </div>
+                </div>
+            </form>
+        }
+    }
+</div>
